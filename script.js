@@ -6,6 +6,8 @@ const enterAndClear = document.querySelector(".enter");
 
 let display = [];
 
+// displaying numbers;
+
 numbers.forEach((number) => {
   number.addEventListener("click", function(){
       display.push(number.value);
@@ -13,16 +15,23 @@ numbers.forEach((number) => {
   });
 });
 
-
+// displaying a point
 point.addEventListener("click", function() {
-  if (!display.includes(".")) {
-      display.push(point.value);
-      screen.textContent = display.join('');
+
+  // If 'display' is empty, prepend '0' to '.'
+  if (display.length === 0){
+    display.push("0");
+    display.push(point.value);
+    screen.textContent = display.join('');
   }
+  // If display does not yet include '.', add '.'
+  else if (!display.includes(".")) {
+    display.push(point.value);
+    screen.textContent = display.join('');
+  } 
 });
 
-
-
+// calculation
 
 let firstNum = 10;
 let secondNum = 20;

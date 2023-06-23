@@ -31,7 +31,9 @@
     position: absolute;
     text-align: right;
     overflow: auto;
-    padding: 10px; /* Add some padding inside the screen */
+    padding: 10px;
+    
+    /* display a scrool bar when many numbers are  yped in  */
     overflow-x: scroll; 
 }
 
