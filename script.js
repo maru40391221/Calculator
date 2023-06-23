@@ -14,6 +14,16 @@ numbers.forEach((number) => {
 });
 
 
+point.addEventListener("click", function() {
+  if (!display.includes(".")) {
+      display.push(point.value);
+      screen.textContent = display.join('');
+  }
+});
+
+
+
+
 let firstNum = 10;
 let secondNum = 20;
 const operator = {
