@@ -30,7 +30,9 @@
     width: 90%;
     position: absolute;
     text-align: right;
-
+    overflow: auto;
+    padding: 10px; /* Add some padding inside the screen */
+    overflow-x: scroll; 
 }
 
 .buttons {
@@ -53,11 +55,20 @@ button {
     background-color: #eee;
     border: 1px solid #ddd;
     font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform .2s, background-color .1s, border .1s;  
+}
+button:hover {
+    transform: scale(1.2); 
+
+    border: 3px solid #ff0000;
+  }
+
+button:active {
+    transform: scale(0.9); 
+    background-color: #616060;
 }
 
-button.number {
-    background-color: #ddd;
-}
 
 button.operator {
     background-color: #f90;
@@ -67,6 +78,7 @@ button.operator {
 button.enter {
     background-color: rgba(255, 0, 0, 0.845);
     color: white;
+    transition: transform .2s, background-color .1s, border .1s;  
 }
 
 button.point {
