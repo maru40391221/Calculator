@@ -23,11 +23,13 @@ point.addEventListener("click", function() {
     display.push("0");
     display.push(point.value);
     screen.textContent = display.join('');
+
   }
   // If display does not yet include '.', add '.'
   else if (!display.includes(".")) {
     display.push(point.value);
     screen.textContent = display.join('');
+
   } 
 });
 
@@ -43,8 +45,8 @@ operators.forEach((operator) => {
     } else {
       display.push(operator.value);
       screen.textContent = display.join('');
-    }
 
+    }
   });
 });
 
@@ -81,7 +83,24 @@ console.log(operate("*", firstNum, secondNum));  // Output: 200
 console.log(operate("/", firstNum, secondNum));  // Output: 0.5
 
 
-// *******************enter/clear
+// *******************enter
+
+enterAndClear.addEventListener("click", function(){
+  // turn the dispaly array into one string 
+  const mathExpression = display.join("");
+  // to empty display array
+  display = [];
+  const calculate = new Function(`return ${mathExpression}`)
+  const result = calculate();
+
+  screen.textContent = result.toString();
+  display.push(result.toString());
+
+})
+
+
+
+// *******************clear function
 let pressTimer;
 
 enterAndClear.addEventListener('mousedown', function() {
