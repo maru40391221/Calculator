@@ -35,8 +35,16 @@ point.addEventListener("click", function() {
 
 operators.forEach((operator) => {
   operator.addEventListener("click", function(){
-    display.push(operator.value);
-    screen.textContent = display.join('');
+    if (display.length === 0){
+      alert("Please type some numbers in");
+    }
+    else if (display.some((item) => isNaN(item))){
+      alert("one operator at a time");
+    } else {
+      display.push(operator.value);
+      screen.textContent = display.join('');
+    }
+
   });
 });
 
