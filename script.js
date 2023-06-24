@@ -1,12 +1,12 @@
 const numbers = document.querySelectorAll(".number");
 const screen = document.querySelector("#screen");
-const operatorButtons = document.querySelectorAll(".operator");
+const operators = document.querySelectorAll(".operator");
 const point = document.querySelector(".point");
 const enterAndClear = document.querySelector(".enter");
 
 let display = [];
 
-// displaying numbers;
+// ******************* displaying numbers;
 
 numbers.forEach((number) => {
   number.addEventListener("click", function(){
@@ -15,7 +15,7 @@ numbers.forEach((number) => {
   });
 });
 
-// displaying a point
+// ******************* displaying a point
 point.addEventListener("click", function() {
 
   // If 'display' is empty, prepend '0' to '.'
@@ -31,7 +31,17 @@ point.addEventListener("click", function() {
   } 
 });
 
-// calculation
+// ******************* displaying operators
+
+operators.forEach((operator) => {
+  operator.addEventListener("click", function(){
+    display.push(operator.value);
+    screen.textContent = display.join('');
+  });
+});
+
+
+// *******************calculation
 
 let firstNum = 10;
 let secondNum = 20;
@@ -63,7 +73,7 @@ console.log(operate("*", firstNum, secondNum));  // Output: 200
 console.log(operate("/", firstNum, secondNum));  // Output: 0.5
 
 
-// *************************enter/clear*************************
+// *******************enter/clear
 let pressTimer;
 
 enterAndClear.addEventListener('mousedown', function() {
@@ -91,4 +101,3 @@ enterAndClear.addEventListener('mouseup', function() {
   }, 250);
 })
 
-// **************************************************
