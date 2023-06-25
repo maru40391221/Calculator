@@ -30,7 +30,11 @@ point.addEventListener("click", function() {
     display.push(point.value);
     screen.textContent = display.join('');
 
-  } 
+  }  else if (display.some((item) => isNaN(item)&& item !== '.')){
+    display.push(point.value);
+    screen.textContent = display.join('');
+  }
+
 });
 
 // ******************* displaying operators
@@ -40,7 +44,7 @@ operators.forEach((operator) => {
     if (display.length === 0){
       alert("Please type some numbers in");
     }
-    else if (display.some((item) => isNaN(item))){
+    else if (display.some((item) => isNaN(item) && item !== '.')){
       alert("one operator at a time");
     } else {
       display.push(operator.value);
@@ -49,38 +53,6 @@ operators.forEach((operator) => {
     }
   });
 });
-
-
-// *******************calculation
-
-let firstNum = 10;
-let secondNum = 20;
-const operator = {
-  "+": (a, b) => a + b,
-  "-": (a, b) => a - b,
-  "*": (a, b) => a * b,
-  "/": (a, b) => a / b,
-};
-
-function operate(operatorSymbol, a, b) {
-  switch (operatorSymbol) {
-    case "+":
-      return operator["+"](a, b);
-    case "-":
-      return operator["-"](a, b);
-    case "*":
-      return operator["*"](a, b);
-    case "/":
-      return operator["/"](a, b);
-    default:
-      return "Invalid operator";
-  }
-}
-
-console.log(operate("+", firstNum, secondNum));  // Output: 30
-console.log(operate("-", firstNum, secondNum));  // Output: -10
-console.log(operate("*", firstNum, secondNum));  // Output: 200
-console.log(operate("/", firstNum, secondNum));  // Output: 0.5
 
 
 // *******************enter
